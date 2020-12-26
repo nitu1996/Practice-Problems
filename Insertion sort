@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+void swap(int*x,int*y)
+{
+	int temp=*x;
+	*x=*y;
+	*y=temp;
+}
+void print_array(int arr[],int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<arr[i]<<"";
+	}
+}
+void insertion_sort (int arr[],int n)
+{
+	for (int i=1; i<n-1;i++)
+	{
+		int pos = arr[i];
+		int j = i-1;
+		while(j>=0 && arr[j]>pos )
+		{
+			arr[j+1]=arr[j];
+			j--;
+		}
+		arr[j+1]=pos;
+	}
+}
+
+int main()
+{
+	int num;
+	int arr[num];
+	cout<<"Enter The Size Of Array"<<endl;
+	cin>>num;
+	for(int i=0;i<num;i++)
+	{
+		cout<<"Enter The Element"<<endl;
+		cin>>arr[i];
+	}
+	insertion_sort(arr,num);
+	print_array(arr,num);
+}

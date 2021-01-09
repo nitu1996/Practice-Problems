@@ -36,7 +36,7 @@ struct Node * insertatindex(struct Node *head,int data,int index)
 	return head;
 }
 
-//Function to inserty the node at the end of the linked list
+//Function to insert the node at the end of the linked list
 struct Node * insertatend(struct Node *head,int data)
 {
 	struct Node *ptr = (struct Node *)malloc(sizeof(struct Node));
@@ -49,6 +49,15 @@ struct Node * insertatend(struct Node *head,int data)
 	p->next = ptr;
 	ptr->next = NULL;
 	return head;	
+}
+
+//Function to insert node after a given node
+struct Node * insertafter(struct Node *previousnode,struct Node *head,int data)
+{
+	struct Node *ptr = (struct Node *)malloc(sizeof(struct Node));
+	ptr->data=data;
+	ptr->next=previousnode->next;
+	previousnode->next=ptr;
 }
 
 //Function to trevesre through the list
@@ -94,6 +103,7 @@ int main()
 	//head=insertatfirst(head,56);
 	//head = insertatindex(head,56,1);
 	//head= insertatend(head,59);
+	//head=insertafter(head,second,77);
 	//LinkedListTreversal(head);
 	return 0;
 }

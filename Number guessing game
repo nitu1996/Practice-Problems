@@ -1,0 +1,64 @@
+#include<string>
+#include<iostream>
+#include<vector>
+#include<array>
+#include<ctime>
+using namespace std;
+
+void print_vector(vector<int> vector)
+{
+	cout<<"Total number of attempts:-"<<vector.size()<<endl;
+	/*for(int i=0; i<vector.size(); i++)
+	{
+		cout<<vector[i]<<"\t";
+	}*/
+	cout<<endl;
+}
+
+void play_game()
+{
+	cout<<"Let's play the game\n";
+	vector<int> guesses;
+	int random = rand()%251;
+	cout<<random<<endl;
+	cout<<"Guess a numbe\n";
+	while(true)
+	{
+		int guess;
+		cin>>guess;
+		guesses.push_back(guess);
+		if(guess == random)
+		{
+			cout<<"you win\n";
+			break;
+		}
+		else if(guess<random)
+		{
+			cout<<"Too low\n";
+		}
+		else 
+		{
+			cout<<"Too high\n";
+		}
+		
+	}
+	print_vector(guesses);
+}
+
+int main()
+{
+	srand(time(NULL));
+	int choice;
+	cout<<"0. To quit the game\n"<<"1. To play the game\n";
+	cin>>choice;
+	switch(choice)
+	{
+		case(0):
+			cout<<"Thanks for nothing\n";
+			return 0;
+		case(1):
+			play_game();
+			break; 	
+	}
+		
+}
